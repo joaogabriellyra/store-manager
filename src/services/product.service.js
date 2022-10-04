@@ -1,4 +1,5 @@
 const productModel = require('../models/products.model');
+const { nameLength } = require('./validations/validateInputValues');
 
 const getAllProducts = async () => {
   const result = await productModel.findAll();
@@ -6,7 +7,8 @@ const getAllProducts = async () => {
 };
 
 const getProductById = async (id) => {
-  if (id > 3) {
+  const productsLength = await productModel.findAll();
+  if (id > productsLength.length) {
     return { type: 'error' }; 
   }
   const result = await productModel.findById(id);
@@ -14,7 +16,16 @@ const getProductById = async (id) => {
   return { type: null, message: result }; 
 };
 
+const insertProduct = async (name) => {
+  const error = nameLength(name);
+  if (error) return { type: error, message: '"name" length must be at least 5 characters long' };
+  const productId = await productModel.insert({ name });
+  const result = await getProductById(productId);
+  return { type: null, message: result.message };
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
+  insertProduct,
 };
