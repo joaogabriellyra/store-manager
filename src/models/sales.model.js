@@ -50,10 +50,19 @@ const deleteById = async (id) => {
   );
 };
 
+const updateById = async (sale, id) => {
+  await Promise.all(sale.map(async (product) => connection.execute(
+    `UPDATE sales_products SET quantity = ?
+    WHERE sale_id = ? AND product_id = ?`, 
+    [product.quantity, id, product.productId],
+  )));
+};
+
 module.exports = {
   insert,
   creatingSale,
   findAll,
   findById,
   deleteById,
+  updateById,
 };
