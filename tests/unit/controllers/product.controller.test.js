@@ -4,7 +4,7 @@ const { expect } = chai;
 
 const productService = require("../../../src/services/product.service");
 const productController = require("../../../src/controllers/product.controller");
-const { products } = require("../../mocks/products.mock");
+const { products, productToInsert } = require("../../mocks/products.mock");
 
 describe('Testa a camada controller da rota products', () => {
   afterEach( async function () {
@@ -37,4 +37,26 @@ describe('Testa a camada controller da rota products', () => {
     expect(res.json.calledWith(products[0])).to.be.true;
   });
 
+  it('testa se é possível cadastrar um novo produto', async () => {
+    req.body = { name: productToInsert.name };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(productService, 'insertProduct')
+      .resolves({ type: null, message: productToInsert });
+    await productController.insertingProduct(req, res);
+    expect(res.status.calledWith(201)).to.be.true;
+    expect(res.json.calledWith(productToInsert)).to.be.true;
+  });
+
+  it('testa se é possível alterar um produto', async () => {
+    req.body = { name: productToInsert.name };
+    req.params = { id: 2 }
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(productService, 'updateProductById')
+      .resolves({ type: null, message: productToInsert });
+    await productController.updatingProduct(req, res);
+    expect(res.status.calledWith(200)).to.be.true;
+    expect(res.json.calledWith(productToInsert)).to.be.true;
+  })
 })

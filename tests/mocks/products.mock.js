@@ -5,7 +5,7 @@ const products = [
 ];
 
 const productToInsert = {
-  name: "ProdutoX"
+  name: "FalleN"
 };
 
 module.exports = {
