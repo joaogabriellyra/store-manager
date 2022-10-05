@@ -7,12 +7,8 @@ const getAllProducts = async () => {
 };
 
 const getProductById = async (id) => {
-  const productsLength = await productModel.findAll();
-  if (id > productsLength.length) {
-    return { type: 'error' }; 
-  }
   const result = await productModel.findById(id);
-
+  if (!result) return { type: 'error' }; 
   return { type: null, message: result }; 
 };
 
@@ -29,9 +25,14 @@ const updateProductById = async (name, id) => {
   return { message: result };
 };
 
+const deleteProductById = async (id) => {
+  await productModel.deleteById(id);
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   insertProduct,
   updateProductById,
+  deleteProductById,
 };
