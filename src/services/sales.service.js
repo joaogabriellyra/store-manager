@@ -15,16 +15,18 @@ const getAllSales = async () => {
 };
 
 const getSaleById = async (saleId) => {
-  const salesLength = await getAllSales();
-  if (saleId > salesLength.message.length) {
-    return { type: 'error' };
-  }
   const result = await salesModel.findById(saleId);
+  if (result.length === 0) return { type: 'error' };
   return { type: null, message: result }; 
+};
+
+const deleteSaleById = async (saleId) => {
+  await salesModel.deleteById(saleId);
 };
 
 module.exports = {
   insertSale,
   getAllSales,
   getSaleById,
+  deleteSaleById,
 };
