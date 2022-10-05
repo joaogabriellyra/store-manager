@@ -26,4 +26,15 @@ describe('Testa a camada controller da rota products', () => {
     expect(res.json.calledWith(products)).to.be.true;
   });
 
+  it('testa se é listado um produto baseado em seu Id', async () => {
+    req.params = { id: products[0].id };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(productService, 'getProductById')
+      .resolves({ type: null, message: products[0] });
+    await productController.showProductById(req, res);
+    expect(res.status.calledWith(200)).to.be.true;
+    expect(res.json.calledWith(products[0])).to.be.true;
+  });
+
 })
