@@ -10,7 +10,6 @@ const showAllSales = async (_req, res) => {
 const showSaleById = async (req, res) => {
   const { id } = req.params;
   const { type, message } = await salesService.getSaleById(id);
-
   if (type || alreadyDeleted === id) return res.status(404).json({ message: 'Sale not found' });
 
   res.status(200).json(message);
@@ -37,6 +36,7 @@ const updatingSale = async (req, res) => {
   const { type } = await salesService.getSaleById(id);
   if (type) return res.status(404).json({ message: 'Sale not found' });
   const { message } = await salesService.updateSaleById(req.body, id);
+  alreadyDeleted = null;
   res.status(200).json(message);
 };
 
