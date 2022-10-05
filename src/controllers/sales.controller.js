@@ -32,9 +32,14 @@ const deletingSale = async (req, res) => {
   res.status(204).json();
 };
 
+const updatingSale = async (_req, _res) => { 
+
+};
+
 module.exports = {
   insertingSale,
   showAllSales,
   showSaleById,
   deletingSale,
+  updatingSale,
 };
