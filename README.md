@@ -24,12 +24,13 @@ This is a RESTful API built using Node.js and Express.js for the management of a
 ```
 docker-compose up -d
 ```
-![starting the application](https://i.ibb.co/xXk4psG/Captura-de-tela-de-2023-09-25-02-11-52.png)
+![starting the application](https://i.ibb.co/smyTbgZ/Captura-de-tela-de-2023-09-25-02-19-43.png)
 * After that, you have to check the Node container ID to acess him:
 ```
 docker ps
 ```
 ![acessing node container](https://i.ibb.co/jzcsTTg/Captura-de-tela-de-2023-09-25-02-01-07.png)
 * Now, using the Node container ID, you will acess the container in interative mode and will type npm start:
+
 ![starting the application](https://i.ibb.co/YtyCQVz/Captura-de-tela-de-2023-09-25-02-15-10.png)
 ## Routes
