@@ -84,12 +84,7 @@ URL EXAMPLE: /products/search?q=PartOfProductName
 
 - PUT: Edit a specific product by his id
   - It expects a JSON object to be passed to the request, with a name (string with a minimum of 5 characters).
-
-```
-{
-  "name": "Quad Blasters"
-}
-```
+![New weapon](https://i.ibb.co/Xkm6DKw/Captura-de-tela-de-2023-09-25-02-59-49.png)
 - DELETE: Remove a product by his id
 </details>
 
@@ -160,5 +155,5 @@ URL EXAMPLE: /products/search?q=PartOfProductName
    }
  ]
 ```
-- DELETE: Remove a sale by its id
+- DELETE: Remove a sale by his id
 </details>
