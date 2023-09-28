@@ -38,7 +38,7 @@ docker ps
 <summary><b>/products</b></summary>
 <br />
 
-- GET: List all products:
+- GET: Retrieve a list of all products.:
 ```
 [
   {
@@ -56,7 +56,7 @@ docker ps
 ]
 ```
 
-- POST: Create a new product
+- POST: Create a new product.
 ```
 {
   "name": "Quad Blasters"
@@ -80,12 +80,12 @@ URL EXAMPLE: /products/search?q=PartOfProductName
 <summary><b>/products/:id</b></summary>
 <br />
 
-- GET: List product by his id
+- GET: Retrieve a specific product by ID.
 
-- PUT: Edit a specific product by his id
+- PUT: Update an existing product by ID.
   - It expects a JSON object to be passed to the request, with a name (string with a minimum of 5 characters).
 ![New weapon](https://i.ibb.co/Xkm6DKw/Captura-de-tela-de-2023-09-25-02-59-49.png)
-- DELETE: Remove a product by his id
+- DELETE: Delete a product by ID.
 </details>
 
 ### Sales:
@@ -94,7 +94,7 @@ URL EXAMPLE: /products/search?q=PartOfProductName
 <summary><b>/sales</b></summary>
 <br />
 
-- GET: List all sales
+- GET: Retrieve a list of all sales
 ```
 [
   {
@@ -138,9 +138,9 @@ URL EXAMPLE: /products/search?q=PartOfProductName
 <summary><b>/sales/:id</b></summary>
 <br />
 
-- GET: List a sale by id
+- GET: Retrieve a specific sale by ID
 
-- PUT: Edit a sale using his id
+- PUT: Update an existing sale by ID
   - It requires an array of objects to be passed to the request, with the following format:
 
 ```
@@ -155,5 +155,5 @@ URL EXAMPLE: /products/search?q=PartOfProductName
    }
  ]
 ```
-- DELETE: Remove a sale by his id
+- DELETE: Remove a sale by ID
 </details>
