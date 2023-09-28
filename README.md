@@ -4,7 +4,7 @@ This is a RESTful API built using Node.js and Express.js for the management of a
 **Summary**
 
 - [Tools and Libraries](#tools-and-libraries)
-- [Installation](#installation)
+- [Getting Started](#getting-started)
 - [Routes](#routes)
 ## Tools and Libraries
 * Node.js
@@ -18,7 +18,13 @@ This is a RESTful API built using Node.js and Express.js for the management of a
 * ESLint
 * Nodemon
 * Snakeize / Camelize
-## Installation
+## Getting Started
+The .env file has been commited to facilitate.
+
+* Clone this repository:
+```
+git clone https://github.com/joaogabriellyra/store-manager.git
+```
 * To configure the environment and start the application we will use Docker:
 ```
 docker-compose up -d
